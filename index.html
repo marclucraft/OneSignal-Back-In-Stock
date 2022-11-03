@@ -26,13 +26,24 @@
 		</script>
 	</head>
 	<body>
-		<h1>Timex Alarm Clock</h1>
+		<h1 id="productname">Timex Alarm Clock</h1>
 		<img src="https://picsum.photos/id/357/400/300" alt="Timex Alarm Clock" />
 		<h2>Price: £20.00</h2>
 		<h3>Out of Stock</h3>
 		<h4>Join the waiting list</h4>
-		<form action="">
+		<form id="waitingist">
 			<button type="submit">Get Notified</button>
 		</form>
+		<script>
+			const productName = getElementById('productname').innerHTML;
+			const form = document.getElementById('waitinglist');
+
+			form.addEventListener('submit', e => {
+				e.preventDefault();
+
+				OneSignal.showNativePrompt();
+				OneSignal.sendTag('backInStock', productName);
+			});
+		</script>
 	</body>
 </html>
