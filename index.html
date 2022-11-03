@@ -31,14 +31,14 @@
 		<h2>Price: £20.00</h2>
 		<h3>Out of Stock</h3>
 		<h4>Join the waiting list</h4>
-		<form id="waitingist">
+		<form id="waitinglist">
 			<button type="submit">Get Notified</button>
 		</form>
 		<script>
 			const productName = document.getElementById('productname').innerHTML;
 			const form = document.getElementById('waitinglist');
 
-			form.addEventListener('submit', e => {
+			form.addEventListener('submit', function (e) {
 				e.preventDefault();
 
 				OneSignal.showNativePrompt();
